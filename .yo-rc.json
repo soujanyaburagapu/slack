@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.slackers.slackapp",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "Slack_Jhip",
+    "packageName": "com.slackers.slackapp",
+    "packageFolder": "com/slackers/slackapp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OWRkYzIyZTZiYjFmZmQxMzM5ODY2MWIzYzQ5OTU5MDY1N2MyMjY4MjA2M2QzMTgzNjc4MTcwZDUxZGMyOGQ4MTZhMjdjZjlmN2FlMjU0ZGRhZjBlN2E2MjNkNzU2N2ViYTNhYjlkMWFjMjVhYTBlZTU4MjFmODhkN2UyYjA5NTg=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ]
+  }
+}
