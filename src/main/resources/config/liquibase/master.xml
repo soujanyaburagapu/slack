@@ -5,6 +5,16 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143521_added_entity_SlackApp.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143522_added_entity_Channel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143523_added_entity_Workspace.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143524_added_entity_AppUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143525_added_entity_Message.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143526_added_entity_DirectMessage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181218143522_added_entity_constraints_Channel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143523_added_entity_constraints_Workspace.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143524_added_entity_constraints_AppUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181218143525_added_entity_constraints_Message.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

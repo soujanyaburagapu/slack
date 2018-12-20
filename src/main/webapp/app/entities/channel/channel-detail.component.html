@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="channel">
+            <h2><span jhiTranslate="slackJhipApp.channel.detail.title">Channel</span> {{channel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="slackJhipApp.channel.channelName">Channel Name</span></dt>
+                <dd>
+                    <span>{{channel.channelName}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.channel.channelID">Channel ID</span></dt>
+                <dd>
+                    <span>{{channel.channelID}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.channel.channelDescription">Channel Description</span></dt>
+                <dd>
+                    <span>{{channel.channelDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.channel.isPrivate">Is Private</span></dt>
+                <dd>
+                    <span>{{channel.isPrivate}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.channel.appUser">App User</span></dt>
+                <dd>
+                    <span *ngFor="let appUser of channel.appUsers; let last = last">
+                        <a [routerLink]="['/app-user', appUser?.id, 'view' ]">{{appUser.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.channel.workspace">Workspace</span></dt>
+                <dd>
+                    <div *ngIf="channel.workspace">
+                        <a [routerLink]="['/workspace', channel.workspace?.id, 'view']">{{channel.workspace?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/channel', channel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

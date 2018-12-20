@@ -1,0 +1,51 @@
+{
+    "name": "Workspace",
+    "fields": [
+        {
+            "fieldName": "workspaceName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "admin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "workspaceID",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "channel",
+            "otherEntityName": "channel",
+            "otherEntityRelationshipName": "workspace"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "slackApp",
+            "otherEntityName": "slackApp",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "appUser",
+            "otherEntityName": "appUser",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "workspace"
+        }
+    ],
+    "changelogDate": "20181218143523",
+    "entityTableName": "workspace",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

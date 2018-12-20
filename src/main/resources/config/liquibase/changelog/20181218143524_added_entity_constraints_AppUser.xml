@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AppUser.
+    -->
+    <changeSet id="20181218143524-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="message_id"
+                                 baseTableName="app_user"
+                                 constraintName="fk_app_user_message_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="message"/>
+
+        <addForeignKeyConstraint baseColumnNames="app_users_id"
+                                 baseTableName="app_user_workspace"
+                                 constraintName="fk_app_user_workspace_app_users_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"/>
+        <addForeignKeyConstraint baseColumnNames="workspaces_id"
+                                 baseTableName="app_user_workspace"
+                                 constraintName="fk_app_user_workspace_workspaces_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="workspace"/>
+        
+        <addForeignKeyConstraint baseColumnNames="app_users_id"
+                                 baseTableName="app_user_direct_message"
+                                 constraintName="fk_app_user_direct_message_app_users_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"/>
+        <addForeignKeyConstraint baseColumnNames="direct_messages_id"
+                                 baseTableName="app_user_direct_message"
+                                 constraintName="fk_app_user_direct_message_direct_messages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="direct_message"/>
+        
+        <addForeignKeyConstraint baseColumnNames="slack_app_id"
+                                 baseTableName="app_user"
+                                 constraintName="fk_app_user_slack_app_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="slack_app"/>
+
+    </changeSet>
+</databaseChangeLog>

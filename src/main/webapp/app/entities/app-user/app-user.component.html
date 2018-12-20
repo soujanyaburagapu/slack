@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="slackJhipApp.appUser.home.title">App Users</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-app-user" [routerLink]="['/app-user/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="slackJhipApp.appUser.home.createLabel">
+            Create new App User
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="appUsers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.userId">User Id</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.displayName">Display Name</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.email">Email</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.userName">User Name</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.password">Password</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.isActive">Is Active</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.message">Message</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.workspace">Workspace</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.directMessage">Direct Message</span></th>
+            <th><span jhiTranslate="slackJhipApp.appUser.slackApp">Slack App</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let appUser of appUsers ;trackBy: trackId">
+                <td><a [routerLink]="['/app-user', appUser.id, 'view' ]">{{appUser.id}}</a></td>
+                <td>{{appUser.userId}}</td>
+                <td>{{appUser.displayName}}</td>
+                <td>{{appUser.email}}</td>
+                <td>{{appUser.userName}}</td>
+                <td>{{appUser.password}}</td>
+                <td>{{appUser.isActive}}</td>
+                <td>
+                    <div *ngIf="appUser.message">
+                        <a [routerLink]="['../message', appUser.message?.id, 'view' ]" >{{appUser.message?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let workspace of appUser.workspaces; let last = last">
+                            <a class="form-control-static" [routerLink]="['../workspace', workspace?.id, 'view' ]">{{workspace.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let directMessage of appUser.directMessages; let last = last">
+                            <a class="form-control-static" [routerLink]="['../direct-message', directMessage?.id, 'view' ]">{{directMessage.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <div *ngIf="appUser.slackApp">
+                        <a [routerLink]="['../slack-app', appUser.slackApp?.id, 'view' ]" >{{appUser.slackApp?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/app-user', appUser.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/app-user', appUser.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'app-user/'+ appUser.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

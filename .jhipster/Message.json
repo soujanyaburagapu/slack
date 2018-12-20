@@ -1,0 +1,55 @@
+{
+    "name": "Message",
+    "fields": [
+        {
+            "fieldName": "messageId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "timeStamp",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "dateStamp",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "sender",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "appUser",
+            "otherEntityName": "appUser",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "message"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "channel",
+            "otherEntityName": "channel",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "directMessage",
+            "otherEntityName": "directMessage",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181218143525",
+    "entityTableName": "message",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

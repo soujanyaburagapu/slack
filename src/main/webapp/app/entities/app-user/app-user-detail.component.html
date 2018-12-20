@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="appUser">
+            <h2><span jhiTranslate="slackJhipApp.appUser.detail.title">App User</span> {{appUser.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="slackJhipApp.appUser.userId">User Id</span></dt>
+                <dd>
+                    <span>{{appUser.userId}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.displayName">Display Name</span></dt>
+                <dd>
+                    <span>{{appUser.displayName}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.email">Email</span></dt>
+                <dd>
+                    <span>{{appUser.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.userName">User Name</span></dt>
+                <dd>
+                    <span>{{appUser.userName}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.password">Password</span></dt>
+                <dd>
+                    <span>{{appUser.password}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{appUser.isActive}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.message">Message</span></dt>
+                <dd>
+                    <div *ngIf="appUser.message">
+                        <a [routerLink]="['/message', appUser.message?.id, 'view']">{{appUser.message?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.workspace">Workspace</span></dt>
+                <dd>
+                    <span *ngFor="let workspace of appUser.workspaces; let last = last">
+                        <a [routerLink]="['/workspace', workspace?.id, 'view' ]">{{workspace.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.directMessage">Direct Message</span></dt>
+                <dd>
+                    <span *ngFor="let directMessage of appUser.directMessages; let last = last">
+                        <a [routerLink]="['/direct-message', directMessage?.id, 'view' ]">{{directMessage.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.appUser.slackApp">Slack App</span></dt>
+                <dd>
+                    <div *ngIf="appUser.slackApp">
+                        <a [routerLink]="['/slack-app', appUser.slackApp?.id, 'view']">{{appUser.slackApp?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/app-user', appUser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

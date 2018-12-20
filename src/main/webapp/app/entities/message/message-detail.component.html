@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="message">
+            <h2><span jhiTranslate="slackJhipApp.message.detail.title">Message</span> {{message.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="slackJhipApp.message.messageId">Message Id</span></dt>
+                <dd>
+                    <span>{{message.messageId}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.message.message">Message</span></dt>
+                <dd>
+                    <span>{{message.message}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.message.timeStamp">Time Stamp</span></dt>
+                <dd>
+                    <span>{{message.timeStamp}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.message.dateStamp">Date Stamp</span></dt>
+                <dd>
+                    <span>{{message.dateStamp}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.message.sender">Sender</span></dt>
+                <dd>
+                    <span>{{message.sender}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.message.channel">Channel</span></dt>
+                <dd>
+                    <div *ngIf="message.channel">
+                        <a [routerLink]="['/channel', message.channel?.id, 'view']">{{message.channel?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.message.directMessage">Direct Message</span></dt>
+                <dd>
+                    <div *ngIf="message.directMessage">
+                        <a [routerLink]="['/direct-message', message.directMessage?.id, 'view']">{{message.directMessage?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/message', message.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

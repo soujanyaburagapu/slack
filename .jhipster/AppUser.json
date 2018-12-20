@@ -1,0 +1,77 @@
+{
+    "name": "AppUser",
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "displayName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isActive",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "message",
+            "otherEntityName": "message",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "appUser"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "appUser",
+            "relationshipName": "workspace",
+            "otherEntityName": "workspace",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "appUser",
+            "relationshipName": "directMessage",
+            "otherEntityName": "directMessage",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "slackApp",
+            "otherEntityName": "slackApp",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "channel",
+            "otherEntityName": "channel",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "appUser"
+        }
+    ],
+    "changelogDate": "20181218143524",
+    "entityTableName": "app_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="slackJhipApp.channel.home.title">Channels</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-channel" [routerLink]="['/channel/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="slackJhipApp.channel.home.createLabel">
+            Create new Channel
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="channels">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="slackJhipApp.channel.channelName">Channel Name</span></th>
+            <th><span jhiTranslate="slackJhipApp.channel.channelID">Channel ID</span></th>
+            <th><span jhiTranslate="slackJhipApp.channel.channelDescription">Channel Description</span></th>
+            <th><span jhiTranslate="slackJhipApp.channel.isPrivate">Is Private</span></th>
+            <th><span jhiTranslate="slackJhipApp.channel.appUser">App User</span></th>
+            <th><span jhiTranslate="slackJhipApp.channel.workspace">Workspace</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let channel of channels ;trackBy: trackId">
+                <td><a [routerLink]="['/channel', channel.id, 'view' ]">{{channel.id}}</a></td>
+                <td>{{channel.channelName}}</td>
+                <td>{{channel.channelID}}</td>
+                <td>{{channel.channelDescription}}</td>
+                <td>{{channel.isPrivate}}</td>
+                <td>
+                    <span *ngFor="let appUser of channel.appUsers; let last = last">
+                            <a class="form-control-static" [routerLink]="['../app-user', appUser?.id, 'view' ]">{{appUser.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <div *ngIf="channel.workspace">
+                        <a [routerLink]="['../workspace', channel.workspace?.id, 'view' ]" >{{channel.workspace?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/channel', channel.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/channel', channel.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'channel/'+ channel.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

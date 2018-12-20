@@ -1,0 +1,31 @@
+{
+    "slackJhipApp": {
+        "appUser": {
+            "home": {
+                "title": "App Users",
+                "createLabel": "Create a new App User",
+                "createOrEditLabel": "Create or edit a App User"
+            },
+            "created": "A new App User is created with identifier {{ param }}",
+            "updated": "A App User is updated with identifier {{ param }}",
+            "deleted": "A App User is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete App User {{ id }}?"
+            },
+            "detail": {
+                "title": "App User"
+            },
+            "userId": "User Id",
+            "displayName": "Display Name",
+            "email": "Email",
+            "userName": "User Name",
+            "password": "Password",
+            "isActive": "Is Active",
+            "message": "Message",
+            "workspace": "Workspace",
+            "directMessage": "Direct Message",
+            "slackApp": "Slack App",
+            "channel": "Channel"
+        }
+    }
+}

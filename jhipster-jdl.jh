@@ -1,0 +1,74 @@
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+
+entity SlackApp{
+}
+
+entity Channel {
+	channelName String,
+    channelID Long,
+    channelDescription String,
+    isPrivate Boolean,
+}
+
+entity Workspace{
+	workspaceName String,
+    admin String,
+    workspaceID Long,
+    description String
+}
+
+entity AppUser {
+	userId Long,
+    displayName String,
+	email String,
+	userName String,
+	password String,
+    isActive Boolean,
+}
+
+entity Message {
+    messageId Long,
+	message String,
+	timeStamp ZonedDateTime,
+    dateStamp LocalDate,
+    sender String,
+}
+
+entity DirectMessage{
+    dmId Long,
+    message String,
+}
+
+enum Language {
+    ENGLISH
+}
+
+relationship OneToOne {
+    AppUser to Message,
+}
+
+// defining multiple OneToMany relationships with comments
+relationship ManyToMany {
+    AppUser to Workspace,
+    Channel to AppUser,
+    AppUser to DirectMessage,
+}
+
+relationship OneToMany{
+    Workspace to Channel,
+    Channel to Message,
+    DirectMessage to Message,
+    SlackApp to Workspace,
+    SlackApp to AppUser
+}
+
+// defining multiple oneToOne relationships
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

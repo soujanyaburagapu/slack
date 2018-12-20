@@ -1,0 +1,52 @@
+{
+    "name": "Channel",
+    "fields": [
+        {
+            "fieldName": "channelName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "channelID",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "channelDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isPrivate",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "message",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "channel"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "channel",
+            "relationshipName": "appUser",
+            "otherEntityName": "appUser",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "workspace",
+            "otherEntityName": "workspace",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181218143522",
+    "entityTableName": "channel",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

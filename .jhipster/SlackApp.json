@@ -1,0 +1,28 @@
+{
+    "name": "SlackApp",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "workspace",
+            "otherEntityName": "workspace",
+            "otherEntityRelationshipName": "slackApp"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "appUser",
+            "otherEntityName": "appUser",
+            "otherEntityRelationshipName": "slackApp"
+        }
+    ],
+    "changelogDate": "20181218143521",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "slack_app",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

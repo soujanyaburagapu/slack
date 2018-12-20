@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="workspace">
+            <h2><span jhiTranslate="slackJhipApp.workspace.detail.title">Workspace</span> {{workspace.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="slackJhipApp.workspace.workspaceName">Workspace Name</span></dt>
+                <dd>
+                    <span>{{workspace.workspaceName}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.workspace.admin">Admin</span></dt>
+                <dd>
+                    <span>{{workspace.admin}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.workspace.workspaceID">Workspace ID</span></dt>
+                <dd>
+                    <span>{{workspace.workspaceID}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.workspace.description">Description</span></dt>
+                <dd>
+                    <span>{{workspace.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="slackJhipApp.workspace.slackApp">Slack App</span></dt>
+                <dd>
+                    <div *ngIf="workspace.slackApp">
+                        <a [routerLink]="['/slack-app', workspace.slackApp?.id, 'view']">{{workspace.slackApp?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/workspace', workspace.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

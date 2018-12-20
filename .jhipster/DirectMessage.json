@@ -1,0 +1,37 @@
+{
+    "name": "DirectMessage",
+    "fields": [
+        {
+            "fieldName": "dmId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "message",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "directMessage"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "appUser",
+            "otherEntityName": "appUser",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "directMessage"
+        }
+    ],
+    "changelogDate": "20181218143526",
+    "entityTableName": "direct_message",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

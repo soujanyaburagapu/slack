@@ -1,0 +1,22 @@
+{
+    "slackJhipApp": {
+        "slackApp": {
+            "home": {
+                "title": "Slack Apps",
+                "createLabel": "Create a new Slack App",
+                "createOrEditLabel": "Create or edit a Slack App"
+            },
+            "created": "A new Slack App is created with identifier {{ param }}",
+            "updated": "A Slack App is updated with identifier {{ param }}",
+            "deleted": "A Slack App is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Slack App {{ id }}?"
+            },
+            "detail": {
+                "title": "Slack App"
+            },
+            "workspace": "Workspace",
+            "appUser": "App User"
+        }
+    }
+}
